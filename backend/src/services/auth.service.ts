@@ -10,6 +10,26 @@ export class AuthService {
     this.userModel = userModel;
   }
 
+  async login(email: string, password: string) {
+    const user = await this.userModel.getOne(email);
+    if (!user) {
+      throw new Error("Credenciales incorrectas - Email");
+    }
+
+    const comparePassword = await bcrypt.compare(password, user.password);
+    if (!comparePassword) {
+      throw new Error("Credenciales incorrectas - Contraseña");
+    }
+
+    const token = this.generateToken({ email: user.email });
+
+    return {
+      email: user.email,
+      name: user.name,
+      token,
+    };
+  }
+
   async register(email: string, name: string, password: string) {
     const existingUser = await this.userModel.getOne(email);
     if (existingUser) {
