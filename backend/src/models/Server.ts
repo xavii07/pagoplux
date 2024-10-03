@@ -1,16 +1,19 @@
 import express, { Application } from "express";
 import cors from "cors";
 import morgan from "morgan";
+import { createAuthRouter } from "../routes/auth.routes";
+import { UserModel } from "./user.model";
 
 class ServerApp {
   private port: number;
   private app: Application;
 
   constructor() {
-    this.port = Number(process.env.PORT) || 3000;
+    this.port = Number(process.env.PORT) ?? 3001;
     this.app = express();
 
     this.middlewares();
+    this.routes();
   }
 
   middlewares() {
@@ -20,7 +23,7 @@ class ServerApp {
   }
 
   routes() {
-    this.app.use;
+    this.app.use("/api/auth", createAuthRouter(new UserModel()));
   }
 
   listen() {
