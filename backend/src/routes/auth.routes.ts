@@ -8,6 +8,7 @@ export const createAuthRouter = (userModel: IUserModel) => {
   const authService = new AuthService(userModel);
   const authController = new AuthController(authService);
 
+  router.post("/login", authController.login);
   router.post("/register", authController.register);
 
   return router;
