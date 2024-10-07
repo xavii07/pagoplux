@@ -1,0 +1,89 @@
+.container-login {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden auto;
+}
+
+.container-login h2 {
+  margin-top: 0;
+  font-size: 1.5rem;
+  text-align: center;
+  color: #555;
+}
+
+.container-login form {
+  background-color: #fee;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+  padding: 2rem 4rem;
+  border-radius: 0.8rem;
+}
+
+.container-login form div {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.container-login form input {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.container-login form label {
+  font-size: 0.8rem;
+  margin-bottom: 10px;
+  color: #555;
+  font-weight: bold;
+}
+
+.container-login form button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+}
+
+.container-login form button:hover {
+  background-color: #0069d9;
+}
+
+.error-message {
+  background-color: red;
+  height: 3rem;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  animation: ani 1s ease-in-out;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+}
+
+.error-message p {
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+@keyframes ani {
+  from {
+    opacity: 0;
+    transform: translateY(-10rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
